@@ -1,10 +1,12 @@
 function logoAnimation() {
     
     
-    fetch('svgFrames.html')
-    .then(response => response.text())
+    const logoContainer = document.getElementById('logo-container');
+    if (!logoContainer) return;
+    
+    fetch('/svgFrames.html')
+    .then(response => response.ok ? response.text() : Promise.reject(response.status))
     .then(data => {
-        const logoContainer = document.getElementById('logo-container');
         
         // Usa DOMParser per evitare problemi con SVG + innerHTML
         const parser = new DOMParser();
@@ -15,12 +17,16 @@ function logoAnimation() {
         
         
         requestAnimationFrame(() => startStopMotion());
+    })
+    .catch(() => {
+        // fallback: avoid GSAP warnings if frames are missing in build
     });
     function startStopMotion() {
         const frames = document.querySelectorAll('#logo-container .frame');
         
         
         const frameCount = frames.length;
+        if (!frameCount) return;
         const frameDuration = 450; // 10fps
         
         // 🎲 Inizio da un frame casuale
@@ -47,10 +53,12 @@ function logoAnimation() {
 function heartAnimation() {
     
     
-    fetch('heartSvgFrames.html')
-    .then(response => response.text())
+    const heartContainer = document.getElementById('heart-container');
+    if (!heartContainer) return;
+    
+    fetch('/heartSvgFrames.html')
+    .then(response => response.ok ? response.text() : Promise.reject(response.status))
     .then(data => {
-        const heartContainer = document.getElementById('heart-container');
         
         // Usa DOMParser per evitare problemi con SVG + innerHTML
         const parser = new DOMParser();
@@ -74,10 +82,14 @@ function heartAnimation() {
             
             
             requestAnimationFrame(() => startStopMotion());
+        })
+        .catch(() => {
+            // fallback: avoid GSAP warnings if frames are missing in build
         });
         function startStopMotion() {
             const frames = document.querySelectorAll('#heart-container .heartFrame');
             const frameCount = frames.length;
+            if (!frameCount) return;
             const defaultDuration = 220;
             
             let current = frameCount - 1;
