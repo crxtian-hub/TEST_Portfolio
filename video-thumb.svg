@@ -1,0 +1,6 @@
+<svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="120" fill="#282828"/>
+  <rect x="16" y="16" width="208" height="88" rx="2" stroke="#F0F0EF" stroke-width="2"/>
+  <path d="M104 43.5L144 60L104 76.5V43.5Z" fill="#F0F0EF"/>
+  <text x="24" y="96" fill="#F0F0EF" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">VIDEO</text>
+</svg>

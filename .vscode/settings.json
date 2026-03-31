@@ -1,4 +1,6 @@
 {
     "liveServer.settings.port": 5500,
-    "python-envs.pythonProjects": []
+    "python-envs.pythonProjects": [],
+    "chatgpt.runCodexInWindowsSubsystemForLinux": false,
+    "chatgpt.openOnStartup": false
 }
